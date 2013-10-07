@@ -32,7 +32,6 @@ Global
 		{282E0672-E609-4751-85E9-E12CBE654B2A}.Debug|x86.Build.0 = Debug|x86
 		{282E0672-E609-4751-85E9-E12CBE654B2A}.Release|Any CPU.ActiveCfg = Release|x86
 		{282E0672-E609-4751-85E9-E12CBE654B2A}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{282E0672-E609-4751-85E9-E12CBE654B2A}.Release|Mixed Platforms.Build.0 = Release|x86
 		{282E0672-E609-4751-85E9-E12CBE654B2A}.Release|x86.ActiveCfg = Release|x86
 		{282E0672-E609-4751-85E9-E12CBE654B2A}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection

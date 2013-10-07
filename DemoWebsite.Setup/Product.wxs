@@ -1,30 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-	<Product Id="*" Name="DemoWebsite.Setup" Language="1033" Version="1.0.0.0" Manufacturer="" UpgradeCode="9279b740-8419-45c4-9538-6a45f8e949c7">
-		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+  <Product Id="{D16E42B5-3C6F-4EE5-B2F4-727BF8B74A92}" Name="Demo website setup" Language="1033" Version="1.0.0.0" Manufacturer="Me" UpgradeCode="9279b740-8419-45c4-9538-6a45f8e949c7">
+    <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
 
-		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
-		<MediaTemplate />
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+    <Media Id="1" Cabinet="DemoWebsite.cab" EmbedCab="yes" />
 
-		<Feature Id="ProductFeature" Title="DemoWebsite.Setup" Level="1">
-			<ComponentGroupRef Id="ProductComponents" />
-		</Feature>
-	</Product>
+    <Feature Id="ProductFeature" Title="DemoWebsite.Setup" Level="1">
+      <ComponentGroupRef Id="MyWebWebComponents" />
+    </Feature>
+  </Product>
 
-	<Fragment>
-		<Directory Id="TARGETDIR" Name="SourceDir">
-			<Directory Id="ProgramFilesFolder">
-				<Directory Id="INSTALLFOLDER" Name="DemoWebsite.Setup" />
-			</Directory>
-		</Directory>
-	</Fragment>
-
-	<Fragment>
-		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
-			<!-- TODO: Remove the comments around this Component element and the ComponentRef below in order to add resources to this installer. -->
-			<!-- <Component Id="ProductComponent"> -->
-				<!-- TODO: Insert files, registry keys, and other resources here. -->
-			<!-- </Component> -->
-		</ComponentGroup>
-	</Fragment>
+  <Fragment>
+    <!-- Will default to C:\ if that is the main disk-->
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <!-- Will reference to C:\inetpub-->
+      <Directory Id="INETPUB" Name="Inetpub">
+        <!-- Will reference to c:\Inetpub\Demowebsite-->
+        <Directory Id="INSTALLFOLDER" Name="DemoWebsite">
+        </Directory>
+      </Directory>
+    </Directory>
+  </Fragment>
 </Wix>
