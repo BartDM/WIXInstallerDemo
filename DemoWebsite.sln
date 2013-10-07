@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoWebsite", "DemoWebsite\DemoWebsite.csproj", "{C0957A90-8622-49AB-98D8-E8CD33DBECEC}"
 EndProject
-Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "DemoWebsite.Setup", "..\DemoWebsite.Setup\DemoWebsite.Setup.wixproj", "{282E0672-E609-4751-85E9-E12CBE654B2A}"
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "DemoWebsite.Setup", "DemoWebsite.Setup\DemoWebsite.Setup.wixproj", "{282E0672-E609-4751-85E9-E12CBE654B2A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
