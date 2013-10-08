@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Fragment>
+    <UI>
+      <Dialog Id="DemoDatabaseDlg"  Width="370" Height="270" Title="Demo website database settings" NoMinimize="yes">
+        <Control Id="DemoServerNameLabel" Type="Text" X="45" Y="73" Width="220" Height="15" TabSkip="no" Text="Database server name or IP" />
+        <Control Id="DemoServerNameEdit" Type="Edit" X="45" Y="85" Width="220" Height="18" Property="DB_SERVER" Text="{80}" />
+        <Control Id="DemoDatabaseNameLabel" Type="Text" X="45" Y="105" Width="220" Height="15" TabSkip="no" Text="Database name" />
+        <Control Id="DemoDatabaseNameEdit" Type="Edit" X="45" Y="117" Width="220" Height="18" Property="DB_DATABASE" Text="{80}" />
+        <Control Id="DemoUserLabel" Type="Text" X="45" Y="137" Width="100" Height="15" TabSkip="no" Text="&amp;Login Demo database" />
+        <Control Id="DemoUserEdit" Type="Edit" X="45" Y="149" Width="220" Height="18" Property="DB_USER" Text="{80}" />
+        <Control Id="DemoPasswordLabel" Type="Text" X="45" Y="161" Width="220" Height="15" TabSkip="no" Text="&amp;Password Demo database" />
+        <Control Id="DemoPasswordEdit" Type="Edit" X="45" Y="173" Width="220" Height="18" Property="DB_PASSWORD" Text="{80}" Password="yes" />
+        <Control Id="Back" Type="PushButton" X="180" Y="243" Width="56" Height="17" Text="Back"></Control>
+        <Control Id="Next" Type="PushButton" X="236" Y="243" Width="56" Height="17" Default="yes" Text="Next"></Control>
+        <Control Id="Cancel" Type="PushButton" X="304" Y="243" Width="56" Height="17" Cancel="yes" Text="!(loc.WixUICancel)">
+          <Publish Event="SpawnDialog" Value="CancelDlg">1</Publish>
+        </Control>
+      </Dialog>
+    </UI>
+	</Fragment>
+</Wix>

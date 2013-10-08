@@ -21,7 +21,9 @@
     <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="DemoUI.wxs" />
     <Compile Include="Product.wxs" />
+    <Compile Include="UIDIalogs.wxs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="setup.build" />

@@ -20,12 +20,16 @@
   <ItemGroup>
     <WixCode Include="Product.wxs" />
     <WixCode Include="$(WebSiteContentCode)" />
+    <WixCode Include="DemoUI.wxs" />
+    <WixCode Include="UIDialogs.wxs" />
   </ItemGroup>
 
   <!-- The list of WIX after candle files -->
   <ItemGroup>
     <WixObject Include="Product.wixobj" />
     <WixObject Include="$(WebSiteContentObject)" />
+    <WixObject Include="DemoUI.wixobj" />
+    <WixObject Include="UIDIalogs.wixobj" />
   </ItemGroup>
 
   <!-- Define default target with name 'Build' -->
@@ -59,17 +63,23 @@
   </Target>
   <Target Name="WIX">
     <!--     At last create an installer -->
-    <Message Text="TEST: @(WixCode)"/>
     <Exec
         Command='"$(WixPath)candle" -dpublishDir=$(Publish) -dMyWebResourceDir=. @(WixCode, &apos; &apos;)'
         ContinueOnError="false"
         WorkingDirectory="." />
     <Exec
-        Command='"$(WixPath)light" -out $(MsiOut) @(WixObject, &apos; &apos;)'
+        Command='"$(WixPath)light" -ext WixUIExtension -out $(MsiOut) @(WixObject, &apos; &apos;)'
         ContinueOnError="false"
         WorkingDirectory="." />
 
     <!-- A message at the end -->
     <Message Text="Install package has been created." />
   </Target>
+  <!-- Optional target for deleting temporary files. Usually after build -->
+  <Target Name="DeleteTmpFiles">
+    <RemoveDir Directories="$(Publish)" ContinueOnError="false" />
+    <RemoveDir Directories="$(SetupF)" ContinueOnError="false" />
+    <Delete Files="@(WixObject);@(WebSiteContent)" />
+  </Target>
+
 </Project>

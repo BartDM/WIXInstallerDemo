@@ -6,9 +6,17 @@
     <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
     <Media Id="1" Cabinet="DemoWebsite.cab" EmbedCab="yes" />
 
+    <Property Id="DB_USER" Value="sa"/>
+    <Property Id="DB_PASSWORD" Value="sa"/>
+    <Property Id="DB_SERVER" Value="LOCAL"/>
+    <Property Id="DB_DATABASE" Value="DemoWebsite"/>
+
     <Feature Id="ProductFeature" Title="DemoWebsite.Setup" Level="1">
       <ComponentGroupRef Id="MyWebWebComponents" />
     </Feature>
+    <!-- Specify UI -->
+    <UIRef Id="MyUI" />
+    <Property Id="WIXUI_INSTALLDIR" Value="INETPUB" />
   </Product>
 
   <Fragment>
