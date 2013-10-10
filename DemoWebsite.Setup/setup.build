@@ -22,6 +22,7 @@
     <WixCode Include="$(WebSiteContentCode)" />
     <WixCode Include="DemoUI.wxs" />
     <WixCode Include="UIDialogs.wxs" />
+    <WixCode Include="IISConfiguration.wxs" />
   </ItemGroup>
 
   <!-- The list of WIX after candle files -->
@@ -30,6 +31,7 @@
     <WixObject Include="$(WebSiteContentObject)" />
     <WixObject Include="DemoUI.wixobj" />
     <WixObject Include="UIDIalogs.wixobj" />
+    <WixObject Include="IISConfiguration.wixobj" />
   </ItemGroup>
 
   <!-- Define default target with name 'Build' -->
@@ -64,11 +66,11 @@
   <Target Name="WIX">
     <!--     At last create an installer -->
     <Exec
-        Command='"$(WixPath)candle" -dpublishDir=$(Publish) -dMyWebResourceDir=. @(WixCode, &apos; &apos;)'
+        Command='"$(WixPath)candle" -ext WixIISExtension -dpublishDir=$(Publish) -dMyWebResourceDir=. @(WixCode, &apos; &apos;)'
         ContinueOnError="false"
         WorkingDirectory="." />
     <Exec
-        Command='"$(WixPath)light" -ext WixUIExtension -out $(MsiOut) @(WixObject, &apos; &apos;)'
+        Command='"$(WixPath)light" -ext WixIISExtension -ext WixUIExtension -out $(MsiOut) @(WixObject, &apos; &apos;)'
         ContinueOnError="false"
         WorkingDirectory="." />
 

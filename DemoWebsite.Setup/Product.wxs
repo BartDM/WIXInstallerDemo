@@ -13,6 +13,7 @@
 
     <Feature Id="ProductFeature" Title="DemoWebsite.Setup" Level="1">
       <ComponentGroupRef Id="MyWebWebComponents" />
+      <ComponentGroupRef Id="DemoWebsiteIssConfiguration" />
     </Feature>
     <!-- Specify UI -->
     <UIRef Id="MyUI" />
