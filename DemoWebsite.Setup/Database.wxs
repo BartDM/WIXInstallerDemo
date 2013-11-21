@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+         xmlns:util="http://schemas.microsoft.com/wix/UtilExtension"
+         xmlns:sql="http://schemas.microsoft.com/wix/SqlExtension">
+	<Fragment>
+    
+    <Binary Id="CreateTablesBin" SourceFile="Database/CreateTables.sql"></Binary>
+    <Binary Id="FillTablesBin" SourceFile="Database/FillTables.sql"></Binary>
+    
+    <util:User Id="SQLUserSA" Name="[DB_USER]" Password="[DB_PASSWORD]"></util:User>
+
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="SqlComponent" Guid="8A1C82DB-1DD3-4FB5-8600-4F370FE1E04B">
+        <Condition>NOT Installed</Condition>
+        <sql:SqlDatabase Id="MySqlDatabase" Database="[DB_DATABASE]" Server="[DB_SERVER]" CreateOnInstall="yes" DropOnUninstall="yes" User="SQLUserSA" ContinueOnError="no">
+          <sql:SqlScript Id="CreateTables" ExecuteOnInstall="yes" ExecuteOnUninstall="no" BinaryKey="CreateTablesBin" ContinueOnError="no" />
+          <sql:SqlScript Id="FillTables" ExecuteOnInstall="yes" ExecuteOnUninstall="no" BinaryKey="FillTablesBin"  ContinueOnError="no"/>
+        </sql:SqlDatabase>
+        <CreateFolder/>
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+</Wix>

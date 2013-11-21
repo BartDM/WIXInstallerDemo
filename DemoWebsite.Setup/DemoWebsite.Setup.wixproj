@@ -21,13 +21,19 @@
     <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Database.wxs" />
     <Compile Include="DemoUI.wxs" />
     <Compile Include="IISConfiguration.wxs" />
     <Compile Include="Product.wxs" />
     <Compile Include="UIDIalogs.wxs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Database\CreateTables.sql" />
+    <Content Include="Database\FillTables.sql" />
     <Content Include="setup.build" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Database" />
   </ItemGroup>
   <Import Project="$(WixTargetsPath)" />
   <!--
